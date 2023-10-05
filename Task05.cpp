@@ -1,36 +1,38 @@
-#include <iostream>
+#include<iostream>
+#include<cmath>
 using namespace std;
+void determinant(float a, float b, float c);
 main(){
-	cout << "Enter the student's name: ";
-	string name;
-	cin >> name;
-
-	cout << "Enter matriculation marks (out of 1100): ";
-	float matricMarks;
-	cin >> matricMarks;
-
-	cout << "Enter intermediate marks (out of 550): ";
-	float interMarks;
-	cin >> interMarks;
-
-	cout << "Enter Ecat marks (out of 400): ";
-	float Emarks;
-	cin >> Emarks;
-
-	float agg;
-	agg=(Emarks/400*0.5)+(matricMarks/1100*0.1)+(interMarks/550*0.4);
-
-	float aggregate;
-	aggregate=agg*100;
-	cout << "Aggregate score for " << name << " in UET is: "<< aggregate <<"%";
-
-
-
-
-
-
-
-
-
-
+	cout<<"Enter the value of a: ";
+	float a;
+	cin>>a;
+	cout<<"Enter the value of b: ";
+	float b;
+	cin>>b;
+	cout<<"Enter the value of c: ";
+	float c;
+	cin>>c;
+	determinant(a,b,c);
 }
+void determinant(float a, float b, float c)
+{	float det;
+	det=((b*b)-(4*a*c));
+	if(det>0){
+	float rt1;
+	rt1=(-b+sqrt(det))/(2*a);
+	float rt2;
+	rt2=(-b-sqrt(det))/(2*a);
+	cout<<"Solutions: x = "<<rt1<<" and x = "<<rt2;}
+	if(det<0){
+	float rt1;
+	rt1=(-b/2*a);
+	float ra=sqrt(-det)/(2*a);
+	
+	cout<<"Complex Solutions: x = "<<rt1<<" + "<<ra<<"i and x = "<<rt1<<" - "<<ra<<"i";}
+	if(det==0){
+	float rt=-b/(2*a);
+	cout<<"Solution: x = "<<rt;}
+}
+	
+
+	
